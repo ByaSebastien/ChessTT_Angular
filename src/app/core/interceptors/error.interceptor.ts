@@ -22,7 +22,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     
     return next.handle(request).pipe(
       catchError(xhr => {
-        console.log(xhr);
         this._store.dispatch(loadingStop());
         switch(xhr.status) {
           case 400:
@@ -30,7 +29,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             break;
           case 401:
           case 403:
-            this._messageService.add({ severity: 'error', icon: PrimeIcons.EXCLAMATION_TRIANGLE, detail: 'Vos n\'avez pas les droits nécessaires pour cette requète' });
+            this._messageService.add({ severity: 'error', icon: PrimeIcons.EXCLAMATION_TRIANGLE, detail: xhr.error });
             break;
           case 404:
             this._messageService.add({ severity: 'error', icon: PrimeIcons.EXCLAMATION_TRIANGLE, detail: 'L\'adresse du surveur est introuvable' });

@@ -43,7 +43,11 @@ export class MenuComponent extends DestroyedComponent implements OnInit {
     this._router.events.pipe(
       takeUntil(this.destroyed$),
       filter(event => event instanceof NavigationStart),
-    ).subscribe(() => this._menuService.close());
+    ).subscribe(() => {
+      if(window.innerWidth > 768)
+        return;
+      this._menuService.close()
+    });
 
     this._store.select(state => state.sessionState.role).pipe(
       takeUntil(this.destroyed$),

@@ -12,25 +12,25 @@ export class MemberService {
     private readonly _httpClient: HttpClient
   ) { }
 
-  checkUsername(username: string, id: string|null): Observable<boolean> {
+  checkUsername(username: string, id: string|null): Observable<void> {
     let params = new HttpParams();
     params = params.append('username', username);
     if(id) {
       params = params.append('id', id);
     }
-    return this._httpClient.get<boolean>(environment.apiBaseUrl + '/checkUsername', {params});
+    return this._httpClient.head<void>(environment.apiBaseUrl + '/member/canUseUsername', {params});
   }
 
-  checkEmail(email: string, id: string|null): Observable<boolean> {
+  checkEmail(email: string, id: string|null): Observable<void> {
     let params = new HttpParams();
     params = params.append('email', email);
     if(id) {
       params = params.append('id', id);
     }
-    return this._httpClient.get<boolean>(environment.apiBaseUrl + '/checkEmail', {params});
+    return this._httpClient.head<void>(environment.apiBaseUrl + '/member/canUseEmail', {params});
   }
 
   register(form: any): Observable<void> {
-    return this._httpClient.post<void>(environment.apiBaseUrl + '/register', form);
+    return this._httpClient.post<void>(environment.apiBaseUrl + '/member', form);
   }
 }

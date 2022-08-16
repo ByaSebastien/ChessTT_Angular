@@ -13,10 +13,10 @@ export class InscriptionService {
   ) { }
 
   register(id: string): Observable<void> {
-    return this._httpClient.post<void>(environment.apiBaseUrl + '/inscription/' + id, null);
+    return this._httpClient.post<void>(environment.apiBaseUrl + '/tournamentInscription/' + id, null);
   }
 
   unregister(id: string): Observable<void> {
-    return this._httpClient.delete<void>(environment.apiBaseUrl + '/inscription/' + id);
+    return this._httpClient.delete<void>(environment.apiBaseUrl + '/tournamentInscription/' + id);
   }
 }
