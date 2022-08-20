@@ -3,7 +3,7 @@ import { fadeAnimation } from 'src/app/shared/animations/fade.animation';
 
 @Component({
   selector: 'app-tournament',
-  template: `<div  [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+  template: `<div style="height: 100%"  [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
     <router-outlet #outlet="outlet"></router-outlet>
   </div>`,
   animations: [fadeAnimation]

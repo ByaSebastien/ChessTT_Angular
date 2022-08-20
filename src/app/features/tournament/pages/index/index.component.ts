@@ -11,11 +11,11 @@ import { DestroyedComponent } from 'src/app/shared/components/destroyed.componen
 import { CategoryEnum } from '../../enums/category.enum';
 import { StatusEnum } from '../../enums/status.enum';
 import { tournamentSearchForm } from '../../forms/tournament-search.form';
-import { TournamentCriteriaModel } from '../../models/tournament-criteria.model';
+import { TournamentSearchModel } from '../../models/tournament-search.model';
 import { TournamentModel } from '../../models/tournament.model';
 import { InscriptionService } from '../../services/inscription.service';
 import { TournamentService } from '../../services/tournament.service';
-import { changeCriteria, changePage, tournamentState } from '../../states/tournament.reducers';
+import { changeCriteria, changePage, TournamentState } from '../../states/tournament.reducers';
 
 @Component({
   templateUrl: './index.component.html',
@@ -29,7 +29,7 @@ export class IndexComponent extends DestroyedComponent implements OnInit, AfterV
   bottomPaginator!: Paginator
 
   total: number = 0;
-  criteria: TournamentCriteriaModel = { offset: 0, name: null, category: null, statuses: [], womenOnly: false };
+  criteria: TournamentSearchModel = { offset: 0, name: null, category: null, statuses: [], womenOnly: false };
   tournaments: TournamentModel[] = [];
   StatusEnum = StatusEnum;
   CategoryEnum = CategoryEnum;
@@ -38,7 +38,7 @@ export class IndexComponent extends DestroyedComponent implements OnInit, AfterV
   fg!: FormGroup;
 
   constructor(
-    private readonly _store: Store<{ tournamentFeature: { tournamentState: tournamentState },  sessionState: SessionState }>,
+    private readonly _store: Store<{ tournamentFeature: { tournamentState: TournamentState },  sessionState: SessionState }>,
     private readonly _tournamentService: TournamentService,
     private readonly _inscriptionService: InscriptionService,
     private readonly _confirmationService: ConfirmationService,

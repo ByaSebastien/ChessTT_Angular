@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,6 +21,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { CalendarModule } from 'primeng/calendar';
 import { SliderModule } from 'primeng/slider';
 import { TooltipModule } from 'primeng/tooltip';
+import { StepsModule } from 'primeng/steps';
 import { InProgressComponent } from './components/in-progress/in-progress.component';
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 import { CollapsePanelComponent } from './components/collapse-panel/collapse-panel.component';
@@ -39,6 +41,7 @@ import { CollapsePanelComponent } from './components/collapse-panel/collapse-pan
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    CardModule,
     ButtonModule,
     TableModule,
     InputTextModule,
@@ -55,11 +58,13 @@ import { CollapsePanelComponent } from './components/collapse-panel/collapse-pan
     CalendarModule,
     SliderModule,
     TooltipModule,
+    StepsModule,
   ],
   exports: [
     // modules
     FormsModule,
     ReactiveFormsModule,
+    CardModule,
     ButtonModule,
     TableModule,
     InputTextModule,
@@ -76,6 +81,7 @@ import { CollapsePanelComponent } from './components/collapse-panel/collapse-pan
     CalendarModule,
     SliderModule,
     TooltipModule,
+    StepsModule,
     // components
     FormErrorComponent,
     LoaderComponent,

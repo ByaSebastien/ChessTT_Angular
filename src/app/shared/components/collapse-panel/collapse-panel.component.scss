@@ -2,10 +2,8 @@
     display: block;
     margin-bottom: 10px;
     >.collapse-panel {
-        >.header {
-            padding: 20px 0;
-        }
         >.body {
+            margin-top: 20px;
             transition: all .5s ease;
             >.padding {
                 padding: 20px 10px;

@@ -8,9 +8,12 @@ import { IndexComponent } from './pages/index/index.component';
 import { AddComponent } from './pages/add/add.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { StoreModule } from '@ngrx/store';
-import { TournamentReducer } from './states/tournament.reducers';
+import { TournamentEffects, TournamentReducer } from './states/tournament.reducers';
 import { StatusToStringPipe } from './pipes/status-to-string.pipe';
 import { DetailsComponent } from './pages/details/details.component';
+import { MatchComponent } from './components/match/match.component';
+import { RoundFilterPipe } from './pipes/round-filter.pipe';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -21,12 +24,15 @@ import { DetailsComponent } from './pages/details/details.component';
     EditComponent,
     StatusToStringPipe,
     DetailsComponent,
+    MatchComponent,
+    RoundFilterPipe,
   ],
   imports: [
     CommonModule,
     TournamentsRoutingModule,
     SharedModule,
     StoreModule.forFeature('tournamentFeature', { tournamentState: TournamentReducer }),
+    EffectsModule.forFeature([TournamentEffects]),
   ]
 })
 export class TournamentModule { }

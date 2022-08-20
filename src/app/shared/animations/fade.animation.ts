@@ -6,8 +6,8 @@ import {
     query,
   } from '@angular/animations';
   
-const startState = { opacity: 0 };
-const endState = { opacity: 1 };
+const startState = { opacity: 0, posttion: 'absolute' };
+const endState = { opacity: 1, position: 'relative' };
 
 export const fadeAnimation = trigger('fadeAnimation', [
     transition('* => *', [
@@ -16,7 +16,7 @@ export const fadeAnimation = trigger('fadeAnimation', [
             ], { optional: true }
         ),
         query(':leave', [
-            style({...endState, position: 'absolute', left: 0, 'z-index': -1, top: '20px', width: '100%' }),
+            style({...endState, left: 0, 'z-index': -1, width: '100%' }),
             animate('0.3s', style({...startState, left: '-100px'})),
             ], { optional: true }
         ),
