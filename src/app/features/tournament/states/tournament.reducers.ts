@@ -1,4 +1,3 @@
-import { state } from "@angular/animations";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { createAction, createReducer, on, props, Store } from "@ngrx/store";
@@ -6,7 +5,7 @@ import { catchError, EMPTY, endWith, map, startWith, switchMap } from "rxjs";
 import { loadingStart, loadingStop } from "src/app/core/states/loading.reducer";
 import { ResultEnum } from "../enums/result.enum";
 import { MatchModel } from "../models/match.model";
-import { PlayerScoreModel, TournamentDetailsModel } from "../models/tournament-details.model";
+import { TournamentDetailsModel } from "../models/tournament-details.model";
 import { TournamentSearchModel } from "../models/tournament-search.model";
 import { MatchService } from "../services/match.service";
 import { TournamentService } from "../services/tournament.service";
@@ -93,7 +92,6 @@ export class TournamentEffects {
 
     constructor(
         private readonly _actions$: Actions,
-        private readonly _store: Store<{ moviesFeature: { tournamentState: TournamentState, loadingState: boolean } }>,
         private readonly _tournamentService: TournamentService,
         private readonly _matchService: MatchService,
     ) {}

@@ -10,8 +10,8 @@
 
     <h2>{{ tournament.name }}</h2>
 
-    <p-card>
-        <div *ngIf="tournament.status !== StatusEnum.WAITING_FOR_PLAYERS" class="py-3">
+    <p-card *ngIf="tournament.status !== StatusEnum.WAITING_FOR_PLAYERS">
+        <div class="py-3">
             <p-steps [(activeIndex)]="selectedTab" 
                      [model]="steps" 
                      [readonly]="false"

@@ -6,8 +6,8 @@ import {
     query,
   } from '@angular/animations';
   
-const startState = { opacity: 0, posttion: 'absolute' };
-const endState = { opacity: 1, position: 'relative' };
+const startState = { opacity: 0 };
+const endState = { opacity: 1 };
 
 export const fadeAnimation = trigger('fadeAnimation', [
     transition('* => *', [
