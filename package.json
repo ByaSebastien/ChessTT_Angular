@@ -2,7 +2,8 @@
   "name": "labo",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng"
+    "ng": "ng",
+    "start": "ng s"
   },
   "private": true,
   "dependencies": {

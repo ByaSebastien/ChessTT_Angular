@@ -16,8 +16,8 @@ export const fadeAnimation = trigger('fadeAnimation', [
             ], { optional: true }
         ),
         query(':leave', [
-            style({...endState, left: 0, 'z-index': -1, width: '100%' }),
-            animate('0.3s', style({...startState, left: '-100px'})),
+            style({ ...endState, position: 'absolute', width: 'calc(100% - 40px)' }),
+            animate('0.3s', style({ ...startState })),
             ], { optional: true }
         ),
         query(':enter', [
