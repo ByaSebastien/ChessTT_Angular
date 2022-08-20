@@ -16,7 +16,7 @@ export const fadeAnimation = trigger('fadeAnimation', [
             ], { optional: true }
         ),
         query(':leave', [
-            style({ ...endState, position: 'absolute', width: 'calc(100% - 40px)' }),
+            style({ ...endState, position: 'absolute', width: 'calc(100% - 40px)', top: '20px' }),
             animate('0.3s', style({ ...startState })),
             ], { optional: true }
         ),
