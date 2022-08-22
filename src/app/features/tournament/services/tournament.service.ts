@@ -19,11 +19,11 @@ export class TournamentService {
 
   get(criteria: TournamentSearchModel): Observable<{ total: number, tournaments: TournamentModel[] }> {
     const params = HttpUtils.createHttpParams(criteria);
-    return this._httpClient.get<TournamentModel[]>(environment.apiBaseUrl + '/tournament', { params, observe: 'response' }).pipe(
-      map(response => ({
-        tournaments: response.body ?? [],
-        total: HttpUtils.getTotal(response.headers),
-        criteria,
+    return this._httpClient.get<{ total: number, results: TournamentModel[]}>(environment.apiBaseUrl + '/tournament', {params}).pipe(
+      map(({total, results}) => ({
+        tournaments: results,
+        total: total,
+        criteria
       }))
     );
   }
