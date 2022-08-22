@@ -53,15 +53,15 @@ export class IndexComponent extends DestroyedComponent implements OnInit, AfterV
 
   ngOnInit(): void {
     this.fg = this._fb.group(tournamentSearchForm);
-    this.fg.patchValue(this.criteria);
     
     this._store.select(state => state.sessionState.role).pipe(
       takeUntil(this.destroyed$)
-    ).subscribe(role => this.isAdmin = role === RoleEnum.ADMIN);
-
+      ).subscribe(role => this.isAdmin = role === RoleEnum.ADMIN);
+      
     this._store.select(state => state.tournamentFeature.tournamentState.searchCriteria).pipe(
       takeUntil(this.destroyed$),
       switchMap((criteria) => {
+        this.fg.patchValue(criteria);
         this._store.dispatch(loadingStart());
         return this._tournamentService.get(criteria);
       }),
